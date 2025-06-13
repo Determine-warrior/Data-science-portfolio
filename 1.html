@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDAY KUMAR V - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+            background-size: 200% 100%;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #667eea;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 5px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-category li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-top: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .project-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tool-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .experience-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .experience-company {
+            color: #667eea;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .experience-date {
+            color: #888;
+            font-weight: 500;
+            background: #e9ecef;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .experience-item li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+            line-height: 1.6;
+        }
+
+        .experience-item li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .certificate-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .certificate-card:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .certificate-icon {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .certificate-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .certificate-card p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .certificate-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .certificate-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .achievements-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .achievements-list li {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .achievements-list li::before {
+            content: '🏆';
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2.2em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section {
+                padding: 25px 20px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .nav-menu {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin-bottom: 20px;
+            }
+
+            .nav-menu ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .projects-grid,
+            .skills-grid,
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .typing-animation {
+            overflow: hidden;
+            border-right: 3px solid #667eea;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #667eea; }
+        }
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 2px solid #333;
+    border-radius: 25px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.github-link:hover {
+    background: #333;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.certificates-container {
+    margin-top: 20px;
+}
+
+.certificate-item {
+    background: #f8f9fa;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    overflow: hidden;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.certificate-item:hover {
+    border-color: #667eea;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+}
+
+.certificate-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: white;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.certificate-info h3 {
+    margin: 0 0 5px 0;
+    color: #333;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.certificate-info p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95em;
+}
+
+.toggle-cert-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toggle-cert-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.toggle-cert-btn.active {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+.toggle-cert-btn.active i {
+    transform: rotate(180deg);
+}
+
+.certificate-viewer {
+    display: none;
+    padding: 0;
+    background: white;
+    animation: slideDown 0.3s ease;
+}
+
+.certificate-viewer.active {
+    display: block;
+}
+
+.certificate-viewer iframe {
+    border: none;
+    border-radius: 0 0 15px 15px;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .certificate-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .certificate-viewer iframe {
+        height: 400px;
+    }
+    
+    .github-link {
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
+}
+
+.profile-img-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    display: block;
+    border: 4px solid #667eea;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+    </style>
+</head>
+<body>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header id="home" class="header fade-in">
+            <img src="certificates\1000132736-removebg-preview.png" alt="UDAY KUMAR V Profile Picture" class="profile-img-photo">
+            <h1 class="typing-animation">UDAY KUMA RV</h1>
+            <p class="subtitle">Aspiring Computer Science Graduate | AI/ML Enthusiast | Full-Stack Developer</p>
+            <div class="contact-info">
+                <a href="tel:+918310499001" class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>8310499001</span>
+                </a>
+                <a href="mailto:udk3737@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>udk3737@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/uday-kumar-v-692957269/" class="contact-item" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Bangalore</span>
+                </div>
+            </div>
+        </header>
+
+        <section id="about" class="section fade-in">
+            <h2>About Me</h2>
+            <p style="font-size: 1.1em; line-height: 1.8; color: #555;">
+                Aspiring Computer Science graduate with strong foundational knowledge in Machine Learning, Artificial Intelligence, Data Science, Data Analysis, and Project Management, along with practical exposure to software testing. Passionate about leveraging data-driven insights and intelligent systems to solve real-world problems. Eager to contribute to innovative technology teams and grow in a challenging, fast-paced environment. Expected to graduate in June 2025.
+            </p>
+        </section>
+
+        <section id="skills" class="section fade-in">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-robot"></i> AI & Machine Learning</h3>
+                    <ul>
+                        <li>Supervised and unsupervised learning</li>
+                        <li>Linear and logistic regression</li>
+                        <li>Decision trees, SVM, K-NN</li>
+                        <li>Neural networks, clustering</li>
+                        <li>Scikit-learn, TensorFlow, Keras</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-bar"></i> Data Science & Analytics</h3>
+                    <ul>
+                        <li>Data cleaning and wrangling</li>
+                        <li>Exploratory data analysis</li>
+                        <li>Statistical analysis, hypothesis testing</li>
+                        <li>Feature engineering</li>
+                        <li>Matplotlib, Seaborn, Plotly</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <ul>
+                        <li>Python (Advanced)</li>
+                        <li>R (Intermediate)</li>
+                        <li>Java (Basic)</li>
+                        <li>Shell scripting</li>
+                        <li>HTML, CSS, JavaScript</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Database & Tools</h3>
+                    <ul>
+                        <li>SQL, MySQL</li>
+                        <li>Database design, ER diagrams</li>
+                        <li>Power BI, Tableau</li>
+                        <li>Microsoft Excel (Advanced)</li>
+                        <li>Git, GitHub</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud & Development</h3>
+                    <ul>
+                        <li>AWS EC2, S3 (Basic)</li>
+                        <li>Google Drive API</li>
+                        <li>VS Code, Jupyter Notebook</li>
+                        <li>PyCharm, Eclipse</li>
+                        <li>REST APIs, debugging</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                    <ul>
+                        <li>Team collaboration</li>
+                        <li>Problem-solving</li>
+                        <li>Technical communication</li>
+                        <li>Project management</li>
+                        <li>Adaptability</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section fade-in">
+            <h2>Academic & Independent Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>AI-Powered Virtual Assistant for Task Automation</h3>
+                    <p>Designed a voice-enabled assistant using Python and NLP to automate tasks such as sending emails and performing desktop operations. Integrated APIs and built a GUI with Tkinter.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Python</span>
+                        <span class="tool-tag">Pandas</span>
+                        <span class="tool-tag">OpenPyXL</span>
+                        <span class="tool-tag">AWS</span>
+                        <span class="tool-tag">Tkinter</span>
+                        <span class="tool-tag">NLP</span>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <a href="https://github.com/Determine-warrior/AIVA" class="github-link" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Stock Market Analysis and Price Prediction</h3>
+                    <p>Built ML models including LSTM for time-series forecasting of stock prices based on historical and sentiment data. Deployed performance visualization dashboards.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Python</span>
+                        <span class="tool-tag">TensorFlow</span>
+                        <span class="tool-tag">NumPy</span>
+                        <span class="tool-tag">Pandas</span>
+                        <span class="tool-tag">Django</span>
+                        <span class="tool-tag">MATLAB</span>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <a href="https://github.com/Determine-warrior/stock-market-analyzing-and-predicting" class="github-link" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Online Attendance Management System</h3>
+                    <p>Developed a full-stack web app using HTML, CSS, JavaScript for UI, and Java + MySQL for backend. Included live tracking, reports, and alerts.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Java</span>
+                        <span class="tool-tag">HTML5</span>
+                        <span class="tool-tag">CSS3</span>
+                        <span class="tool-tag">JavaScript</span>
+                        <span class="tool-tag">MySQL</span>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <a href="https://github.com/Determine-warrior/online-attendance-" class="github-link" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Web Scraping of Flipkart Product Data</h3>
+                    <p>Automated scraping of product listings, reviews, and pricing using Selenium. Exported results to CSV for analysis.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Selenium</span>
+                        <span class="tool-tag">Python</span>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <a href="https://github.com/Determine-warrior/Web-scraper" class="github-link" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Portfolio Management and Financial Analysis Tool</h3>
+                    <p>Created a Python tool to calculate XIRR, market value, and gains using FIFO. Exported performance reports in HTML.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Python</span>
+                        <span class="tool-tag">NumPy</span>
+                        <span class="tool-tag">HTML</span>
+                        <span class="tool-tag">CSS</span>
+                        <span class="tool-tag">Financial Analysis</span>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <a href="https://github.com/Determine-warrior/fund_calculator" class="github-link" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section fade-in">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Full-Stack Developer</div>
+                        <div class="experience-company">Kalakaar</div>
+                    </div>
+                    <div class="experience-date">May 2025</div>
+                </div>
+                <p>Developed a responsive full-stack website with an integrated machine learning model for real-time color prediction. Implemented user-friendly UI/UX, RESTful APIs, and end-to-end functionality including model deployment and database management.</p>
+                <div class="project-tools" style="margin-top: 15px;">
+                    <span class="tool-tag">React</span>
+                    <span class="tool-tag">Node.js</span>
+                    <span class="tool-tag">Express</span>
+                    <span class="tool-tag">MongoDB</span>
+                    <span class="tool-tag">Python</span>
+                    <span class="tool-tag">Scikit-learn</span>
+                    <span class="tool-tag">Flask</span>
+                </div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px 0; color: #667eea; font-size: 1.8em;">Internship Experience</h3>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Data Analytics Intern</div>
+                        <div class="experience-company">Pantech Solutions</div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Applied Python (NumPy, Pandas, Matplotlib, Seaborn) and SQL (MySQL, MongoDB) for large-scale data manipulation and analysis</li>
+                    <li>Developed predictive models using machine learning and deep learning techniques, including CNNs for COVID-19 detection</li>
+                    <li>Implemented Natural Language Processing (NLP) methods for tag identification and text analysis</li>
+                    <li>Created interactive dashboards and visualizations using Tableau and Power BI to communicate data-driven insights</li>
+                    <li>Gained hands-on experience with data preprocessing, model evaluation, hyperparameter tuning, and cloud deployment concepts</li>
+                    <li>Worked with deep learning frameworks such as TensorFlow and Keras</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Full Stack Java Developer Intern</div>
+                        <div class="experience-company">Cranes Varsity, Bangalore</div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Developed a web-based Student Attendance Management System using full-stack Java</li>
+                    <li>Designed frontend with HTML, CSS, JavaScript; backend implemented using Java and MySQL</li>
+                    <li>Key features included live attendance marking, report generation, and alert notifications</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Deep Learning Intern</div>
+                        <div class="experience-company">Pantech Solutions</div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Completed a 30-day internship focused on practical deep learning applications</li>
+                    <li>Gained experience with neural networks, CNNs, RNNs, LSTM, Transfer Learning</li>
+                    <li>Worked with TensorFlow, PyTorch, Keras, MXNet, and Caffe frameworks</li>
+                    <li>Developed and deployed real-time applications including Face Mask Detection, Social Distance Monitoring, Diabetes Prediction, YOLO Object Detection & Image Segmentation</li>
+                </ul>
+            </div>
+
+            <h3 style="margin: 40px 0 20px 0; color: #667eea; font-size: 1.8em;">Virtual Experience</h3>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Data Visualization Intern</div>
+                        <div class="experience-company">Tata Group — Forage Virtual</div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Completed a simulation on empowering businesses through effective data visualization techniques</li>
+                    <li>Focused on translating complex data into actionable insights using visual storytelling, KPIs, and dashboards</li>
+                    <li>Demonstrated the use of data-driven strategies to enhance business decision-making</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Project Management Trainee</div>
+                        <div class="experience-company">Siemens Mobility — Forage Virtual</div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Completed a comprehensive project management simulation focused on rail infrastructure projects</li>
+                    <li>Designed strategic KPIs to monitor project performance aligned with Siemens Mobility's goals</li>
+                    <li>Utilized Microsoft Excel and data visualization techniques to create and present project dashboards</li>
+                    <li>Demonstrated adaptability and problem-solving through stakeholder management and simulated challenges</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Data Analytics & Visualization Intern</div>
+                        <div class="experience-company">Accenture North America — Forage Virtual</div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Completed a simulation focused on advising a hypothetical social media client as a Data Analyst at Accenture</li>
+                    <li>Cleaned, modeled, and analyzed 7 datasets to uncover insights into content trends to inform strategic decisions</li>
+                    <li>Prepared a PowerPoint deck and video presentation to communicate key insights for the client and internal stakeholders</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Data Science Intern</div>
+                        <div class="experience-company">British Airways — Forage Virtual</div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Completed a simulation focusing on how data science is a critical component of British Airways' success</li>
+                    <li>Scraped and analyzed customer review data to uncover meaningful insights</li>
+                    <li>Built a predictive model to understand factors influencing customer buying behavior</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education" class="section fade-in">
+            <h2>Education</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Bachelor of Engineering in Information Science and Engineering</div>
+                        <div class="experience-company">HKBK College of Engineering, Bangalore</div>
+                    </div>
+                    <div class="experience-date">2021 – 2025</div>
+                </div>
+                <p><strong>CGPA:</strong> 8.06 / 10</p>
+                <p><strong>Relevant Coursework:</strong> Data Structures, Computer Networks, DBMS, Operating Systems, Python, MongoDB, AngularJS</p>
+            </div>
+        </section>
+
+<section id="certificates" class="section fade-in">
+    <h2>Certifications</h2>
+    <div class="certificates-container">
+        <div class="certificate-item">
+            <div class="certificate-header">
+                <div class="certificate-info">
+                    <h3><i class="fab fa-python"></i> Python Certification</h3>
+                    <p>Infosys Springboard</p>
+                </div>
+                <button class="toggle-cert-btn" onclick="toggleCertificate('python-cert')">
+                    <i class="fas fa-eye"></i> View Certificate
+                </button>
+            </div>
+            <div class="certificate-viewer" id="python-cert">
+                <iframe src="certificates/python certification.pdf" width="100%" height="600px" frameborder="0">
+                    <p>Your browser does not support PDFs. <a href="certificates/python certification.pdf" target="_blank">Download the PDF</a>.</p>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="certificate-item">
+            <div class="certificate-header">
+                <div class="certificate-info">
+                    <h3><i class="fas fa-paint-brush"></i> UI/UX Foundations</h3>
+                    <p>Google — Coursera</p>
+                </div>
+                <button class="toggle-cert-btn" onclick="toggleCertificate('uiux-cert')">
+                    <i class="fas fa-eye"></i> View Certificate
+                </button>
+            </div>
+            <div class="certificate-viewer" id="uiux-cert">
+                <iframe src="certificates/uiux.pdf" width="100%" height="600px" frameborder="0">
+                    <p>Your browser does not support PDFs. <a href="certificates/uiux.pdf" target="_blank">Download the PDF</a>.</p>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="certificate-item">
+            <div class="certificate-header">
+                <div class="certificate-info">
+                    <h3><i class="fas fa-server"></i> full stack Development</h3>
+                    <p>Meta — Coursera</p>
+                </div>
+                <button class="toggle-cert-btn" onclick="toggleCertificate('backend-cert')">
+                    <i class="fas fa-eye"></i> View Certificate
+                </button>
+            </div>
+            <div class="certificate-viewer" id="backend-cert">
+                <iframe src="certificates/full stack.pdf" width="100%" height="600px" frameborder="0">
+                    <p>Your browser does not support PDFs. <a href="certificates/full stack.pdf" target="_blank">Download the PDF</a>.</p>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="certificate-item">
+            <div class="certificate-header">
+                <div class="certificate-info">
+                    <h3><i class="fas fa-database"></i> SQL Certification</h3>
+                    <p>Udemy</p>
+                </div>
+                <button class="toggle-cert-btn" onclick="toggleCertificate('sql-cert')">
+                    <i class="fas fa-eye"></i> View Certificate
+                </button>
+            </div>
+            <div class="certificate-viewer" id="sql-cert">
+                <iframe src="certificates/sql udemy!!.pdf" width="100%" height="600px" frameborder="0">
+                    <p>Your browser does not support PDFs. <a href="certificates/sql udemy!!.pdf" target="_blank">Download the PDF</a>.</p>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="certificate-item">
+            <div class="certificate-header">
+                <div class="certificate-info">
+                    <h3><i class="fas fa-chart-line"></i> Data Analytics</h3>
+                    <p>Udemy</p>
+                </div>
+                <button class="toggle-cert-btn" onclick="toggleCertificate('analytics-cert')">
+                    <i class="fas fa-eye"></i> View Certificate
+                </button>
+            </div>
+            <div class="certificate-viewer" id="analytics-cert">
+                <iframe src="certificates\ds da.pdf" width="100%" height="600px" frameborder="0">
+                    <p>Your browser does not support PDFs. <a href="certificates\ds da.pdf" target="_blank">Download the PDF</a>.</p>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="certificate-item">
+            <div class="certificate-header">
+                <div class="certificate-info">
+                    <h3><i class="fas fa-brain"></i> Data Modelling</h3>
+                    <p>Infosys</p>
+                </div>
+                <button class="toggle-cert-btn" onclick="toggleCertificate('ml-cert')">
+                    <i class="fas fa-eye"></i> View Certificate
+                </button>
+            </div>
+            <div class="certificate-viewer" id="ml-cert">
+                <iframe src="certificates/mdm.pdf" width="100%" height="600px" frameborder="0">
+                    <p>Your browser does not support PDFs. <a href="certificates/mdm.pdf" target="_blank">Download the PDF</a>.</p>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="certificate-item">
+            <div class="certificate-header">
+                <div class="certificate-info">
+                    <h3><i class="fas fa-project-diagram"></i> Entity Relationship Modeling</h3>
+                    <p>Infosys Springboard</p>
+                </div>
+                <button class="toggle-cert-btn" onclick="toggleCertificate('er-cert')">
+                    <i class="fas fa-eye"></i> View Certificate
+                </button>
+            </div>
+            <div class="certificate-viewer" id="er-cert">
+                <iframe src="certificates/er modelling.pdf" width="100%" height="600px" frameborder="0">
+                    <p>Your browser does not support PDFs. <a href="certificates/er modelling.pdf" target="_blank">Download the PDF</a>.</p>
+                </iframe>
+            </div>
+        </div>
+
+        
+        <div class="certificate-item">
+            <div class="certificate-header">
+                <div class="certificate-info">
+                    <h3><i class="fas fa-chart-bar"></i> Data Visualization</h3>
+                    <p>Tata Group — Forage</p>
+                </div>
+                <button class="toggle-cert-btn" onclick="toggleCertificate('tata-cert')">
+                    <i class="fas fa-eye"></i> View Certificate
+                </button>
+            </div>
+            <div class="certificate-viewer" id="tata-cert">
+                <iframe src="certificates/tata dv.pdf" width="100%" height="600px" frameborder="0">
+                    <p>Your browser does not support PDFs. <a href="certificates/tata dv.pdf" target="_blank">Download the PDF</a>.</p>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="certificate-item">
+            <div class="certificate-header">
+                <div class="certificate-info">
+                    <h3><i class="fas fa-tasks"></i> Project Management</h3>
+                    <p>Siemens Mobility — Forage</p>
+                </div>
+                <button class="toggle-cert-btn" onclick="toggleCertificate('siemens-cert')">
+                    <i class="fas fa-eye"></i> View Certificate
+                </button>
+            </div>
+            <div class="certificate-viewer" id="siemens-cert">
+                <iframe src="certificates/pm.pdf" width="100%" height="600px" frameborder="0">
+                    <p>Your browser does not support PDFs. <a href="certificates/pm.pdf" target="_blank">Download the PDF</a>.</p>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="certificate-item">
+            <div class="certificate-header">
+                <div class="certificate-info">
+                    <h3><i class="fas fa-analytics"></i> Data Analytics & Visualization</h3>
+                    <p>Accenture — Forage</p>
+                </div>
+                <button class="toggle-cert-btn" onclick="toggleCertificate('accenture-cert')">
+                    <i class="fas fa-eye"></i> View Certificate
+                </button>
+            </div>
+            <div class="certificate-viewer" id="accenture-cert">
+                <iframe src="certificates/ace.pdf" width="100%" height="600px" frameborder="0">
+                    <p>Your browser does not support PDFs. <a href="certificates/ace.pdf" target="_blank">Download the PDF</a>.</p>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="certificate-item">
+            <div class="certificate-header">
+                <div class="certificate-info">
+                    <h3><i class="fas fa-plane"></i> Data Science</h3>
+                    <p>British Airways — Forage</p>
+                </div>
+                <button class="toggle-cert-btn" onclick="toggleCertificate('ba-cert')">
+                    <i class="fas fa-eye"></i> View Certificate
+                </button>
+            </div>
+            <div class="certificate-viewer" id="ba-cert">
+                <iframe src="certificates/dsb.pdf" width="100%" height="600px" frameborder="0">
+                    <p>Your browser does not support PDFs. <a href="certificates/dsb.pdf" target="_blank">Download the PDF</a>.</p>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="certificate-item">
+            <div class="certificate-header">
+                <div class="certificate-info">
+                    <h3><i class="fas fa-chart-pie"></i> Power BI Certification</h3>
+                    <p>Microsoft Power BI</p>
+                </div>
+                <button class="toggle-cert-btn" onclick="toggleCertificate('powerbi-cert')">
+                    <i class="fas fa-eye"></i> View Certificate
+                </button>
+            </div>
+            <div class="certificate-viewer" id="powerbi-cert">
+                <iframe src="certificates/power bi.pdf" width="100%" height="600px" frameborder="0">
+                    <p>Your browser does not support PDFs. <a href="certificates/power bi.pdf" target="_blank">Download the PDF</a>.</p>
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section class="section fade-in">
+            <h2>Achievements</h2>
+            <ul class="achievements-list">
+                <li>2nd Place in Inter-Department Web Designing Competition – Received cash prize</li>
+                <li>Final Year Project funded by Karnataka State Council for Science and Technology (KSCST)</li>
+            </ul>
+        </section>
+
+        <section class="section fade-in">
+            <h2>Publications</h2>
+            <div class="experience-item">
+                <h3>The Progression of ChatGPT: An Evolutionary Study from GPT-1 to GPT-4</h3>
+                <p><strong>Published in:</strong> MAT Journals Pvt. Ltd., Volume 3, Issue 3, 2024</p>
+                <p style="margin-top: 10px;">Presented research paper "AI-Powered Virtual Assistant Enhanced Productivity" at NCIT-2025, organized by ISTE and HKBK College of Engineering, Bengaluru, April 11–12, 2025</p>
+            </div>
+        </section>
+    </div>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id], header[id]');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.background = 'linear-gradient(135deg, #667eea, #764ba2)';
+                    link.style.color = 'white';
+                }
+            });
+        });
+
+        // Certificate link error handling
+        document.querySelectorAll('.certificate-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // You can add custom handling here if needed
+                // For now, it will try to open the PDF files from the certificates folder
+            });
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.project-card, .certificate-card, .experience-item').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Initialize animations
+        window.addEventListener('load', () => {
+            document.querySelector('.typing-animation').style.animation = 'typing 3s steps(40, end), blink-caret 0.75s step-end infinite';
+        });
+
+// Certificate toggle functionality
+function toggleCertificate(certId) {
+    const viewer = document.getElementById(certId);
+    const button = event.target.closest('.toggle-cert-btn');
+    const icon = button.querySelector('i');
+    
+    if (viewer.classList.contains('active')) {
+        viewer.classList.remove('active');
+        button.classList.remove('active');
+        button.innerHTML = '<i class="fas fa-eye"></i> View Certificate';
+    } else {
+        // Close all other open certificates
+        document.querySelectorAll('.certificate-viewer.active').forEach(v => {
+            v.classList.remove('active');
+        });
+        document.querySelectorAll('.toggle-cert-btn.active').forEach(b => {
+            b.classList.remove('active');
+            b.innerHTML = '<i class="fas fa-eye"></i> View Certificate';
+        });
+        
+        // Open the clicked certificate
+        viewer.classList.add('active');
+        button.classList.add('active');
+        button.innerHTML = '<i class="fas fa-eye-slash"></i> Hide Certificate';
+        
+        // Smooth scroll to the certificate
+        setTimeout(() => {
+            viewer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+    }
+}
+
+// Update GitHub links (you can customize these URLs)
+document.addEventListener('DOMContentLoaded', function() {
+    const githubLinks = document.querySelectorAll('.github-link');
+    const projectGithubUrls = [
+        'https://github.com/Determine-warrior/AIVA',
+        'https://github.com/Determine-warrior/stock-market-analyzing-and-predicting',
+        'https://github.com/Determine-warrior/online-attendance-',
+        'https://github.com/Determine-warrior/Web-scraper',
+        'https://github.com/Determine-warrior/Web-scraper',
+        'https://github.com/Determine-warrior/fund_calculator'
+    ];
+    
+    githubLinks.forEach((link, index) => {
+        if (projectGithubUrls[index]) {
+            link.href = projectGithubUrls[index];
+        }
+    });
+});
+    </script>
+</body>
+</html>
